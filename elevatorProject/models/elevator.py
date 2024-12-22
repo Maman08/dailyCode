@@ -21,6 +21,7 @@ class Elevator:
             return self.current_floor+requestedFloor
         elif(self.current_floor>requestedFloor and (self.direction=="down")):
             return self.current_floor-requestedFloor
+        return abs(self.current_floor - requestedFloor)
         
     def addFloorReq(self,requestedFloor):
         if requestedFloor not in self.tagret_floor:
@@ -40,8 +41,8 @@ class Elevator:
                 self.direction="up"
 
         elif self.direction == "stopped":
-            if self.target_floors:
-                target = self.target_floors[0]
+            if self.tagret_floor:
+                target = self.tagret_floor[0]
                 if self.current_floor < target:
                     self.current_floor += 1
                     self.direction = "up"
@@ -53,7 +54,7 @@ class Elevator:
                     self.direction = "stopped"
 
     def __str__(self):
-        return f"Elevator {self.id}: Floor {self.current_floor}, Direction {self.direction}, Targets: {self.target_floors}"
+        return f"Elevator {self.id}: Floor {self.current_floor}, Direction {self.direction}, Targets: {self.tagret_floor}"
                 
 
             
