@@ -22,12 +22,36 @@
 // 	}
 // }
 
-
-
-
-
-
 //Time in go
 
+// package main
+// import (
+// 	"fmt"
+// 	"time"
+// )
+
+// func main(){
+// 	date_time:=time.Now().Format("01-02-2006 15:04:05 Monday")
+// 	fmt.Println(date_time)
+// 	created_date:=time.Date(2025,time.January,07,17,48,00,00,*&time.UTC)
+// 	fmt.Println(created_date)
+
+// }
+
+//    Defer
 
 package main
+
+import "fmt"
+
+func main(){
+	defer fmt.Println("hello")
+	defer fmt.Println("world")
+	fmt.Println("Statement 3")
+	loop()
+}
+func loop(){
+	for i:=0;i<=5;i++{
+		defer fmt.Println(i)
+	}
+}
