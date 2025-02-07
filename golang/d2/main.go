@@ -40,18 +40,41 @@
 
 //    Defer
 
+// package main
+
+// import "fmt"
+
+// func main(){
+// 	defer fmt.Println("hello")
+// 	defer fmt.Println("world")
+// 	fmt.Println("Statement 3")
+// 	loop()
+// }
+// func loop(){
+// 	for i:=0;i<=5;i++{
+// 		defer fmt.Println(i)
+// 	}
+// }
+
 package main
 
-import "fmt"
-
+import (
+	"fmt"
+	"io"
+	"os"
+)
 func main(){
-	defer fmt.Println("hello")
-	defer fmt.Println("world")
-	fmt.Println("Statement 3")
-	loop()
-}
-func loop(){
-	for i:=0;i<=5;i++{
-		defer fmt.Println(i)
+	fmt.Println("Exploring file system")
+	conent:="Hello! welcome to the class of golang!! "
+	file,err:=os.Create("./abc.txt")
+	if err !=nil{
+		panic(err)
 	}
+	length,err:=io.WriteString(file,conent)
+	if err!=nil {
+		panic(err)
+	}
+	fmt.Println("Length of file is ",length)
+	defer file.Close()
+
 }
