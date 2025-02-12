@@ -28,6 +28,8 @@ This is a **scalable, high-performance** backend for a healthcare management sys
 - `GET /users` → Retrieve all users.
 - `POST /adduser` → Add a new user.
 - `DELETE /deleteuser/:id` → Delete a user (soft delete).
+- `PATCH /updateuser/:id` → Update user details.
+- `DELETE /permanentdeleteuser/:id` → Delete a user Permanently from table.
 
 #### **Patient Management**
 - `GET /patient` → Retrieve all patients.
