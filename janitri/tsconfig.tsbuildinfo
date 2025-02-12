@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/Config/db.ts","./src/Controller/patientController.ts","./src/Controller/userController.ts","./src/Model/HeartRateRecord.ts","./src/Model/Patient.ts","./src/Model/User.ts","./src/Routes/index.ts"],"version":"5.7.3"}
+{"root":["./src/index.ts","./src/Config/db.ts","./src/Controller/heartRateController.ts","./src/Controller/patientController.ts","./src/Controller/userController.ts","./src/Model/HeartRateRecord.ts","./src/Model/Patient.ts","./src/Model/User.ts","./src/Routes/index.ts"],"version":"5.7.3"}

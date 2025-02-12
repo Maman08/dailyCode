@@ -3,7 +3,7 @@ import pool from "../Config/db";
 
 export const getPatients=async(req:Request,res:Response)=>{
     try{
-        const {rows}=await pool.query("SELECT * FROM patients")
+        const {rows}=await pool.query("SELECT * FROM patients WHERE deleted_at IS NULL")
         res.json(rows)
 
     }catch(error){
