@@ -57,6 +57,18 @@ WHERE p.deleted_at IS NULL;
 - **Supertest**: Used for API request-response validation.
 - **CI/CD Ready**: Code is structured to easily integrate with CI/CD pipelines.
 
+
+### Monitoring API Health with Grafana and Prometheus
+
+We have set up **Grafana** to monitor the health of the API using **Prometheus** as the data source. The dashboard includes metrics such as API response times, error rates, and uptime, giving us visibility into the performance of the backend system.
+
+Below is an example of our Grafana dashboard showing key API health metrics:
+
+<div style="display: flex;">
+  <img src="https://github.com/user-attachments/assets/f8959861-94c6-48d4-9011-5d6e12ccdc6a" width="45%" />
+  <img src="https://github.com/user-attachments/assets/72c7e2f0-1103-43f1-a875-caab42d51a5b" width="45%" />
+</div>
+
 ---
 
 ##  Why This Solution?
@@ -123,4 +135,8 @@ This project was built with a strong focus on **scalability, performance**. The 
 GitHub: [Maman08](https://github.com/Maman08)
 
 ![image](https://github.com/user-attachments/assets/626c6720-5e5f-481f-ac3f-3f3e78546eda)
+![image](https://github.com/user-attachments/assets/f8959861-94c6-48d4-9011-5d6e12ccdc6a)
+![image](https://github.com/user-attachments/assets/72c7e2f0-1103-43f1-a875-caab42d51a5b)
+
+
 
