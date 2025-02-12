@@ -1,6 +1,6 @@
 export interface Patient{
     id:string;
-    user_id:string;
+    userId:string;
     name:string;
     age:number;
     gender:'Male' | 'Female' | 'Other';
