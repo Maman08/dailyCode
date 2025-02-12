@@ -17,6 +17,17 @@ This is a **scalable, high-performance** backend for a healthcare management sys
 - **Used ENUMs where necessary** (e.g., `role`, `gender`) to **restrict values and improve data integrity**.
 - **Implemented Soft Deletes**:
   - Instead of permanently deleting records, a `deleted_at` column is used, allowing records to be restored if necessary.
+## Optimized Queries with JOIN Operations
+
+- Used **SQL JOINs** to efficiently retrieve related data in a **single query** rather than making multiple queries, improving performance.
+
+### Example Query:
+```sql
+SELECT p.id, p.name, p.age, p.gender, h.heart_rate, h.recorded_at
+FROM patients p
+JOIN heart_rate_records h ON p.id = h.patient_id
+WHERE p.deleted_at IS NULL;
+```
 
 ###  API Documentation (Swagger)
 - Integrated **Swagger UI** (`/api-docs`) for **interactive API documentation**.
