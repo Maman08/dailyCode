@@ -4,7 +4,10 @@ import { addPatient, getPatients, deletePatient } from "../Controller/patientCon
 import { addHeartRateRecord, getHeartRateRecords, deleteHeartRateRecord } from "../Controller/heartRateController";
 
 const router = express.Router();
-
+router.get('/health', (req, res) => {
+    res.status(200).json({ message: 'API is running' });
+  });
+  
 /**
  * @swagger
  * /users:

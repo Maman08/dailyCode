@@ -9,8 +9,12 @@ console.log("Swagger Docs available at /api-docs");
 // pool.connect();
 app.use(express.json());
 app.use('/',router);
-app.listen(PORT, () => {
-  console.log('Srver is running on PORT ', PORT);
-});
+let server: any;
+if (process.env.NODE_ENV !== 'test') {
+  server = app.listen(PORT, () => {
+    console.log('Server is running on PORT ', PORT);
+  });
+}
 
+ export {app,server};
 
