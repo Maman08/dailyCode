@@ -8,13 +8,14 @@ setupSwagger(app);
 console.log("Swagger Docs available at /api-docs");
 // pool.connect();
 app.use(express.json());
-app.use('/',router);
-let server: any;
+app.use('/',router);let server: any;
+
 if (process.env.NODE_ENV !== 'test') {
   server = app.listen(PORT, () => {
-    console.log('Server is running on PORT ', PORT);
+    console.log('Server is running on PORT', PORT);
   });
+} else {
+  console.log("Test mode: Server not started");
 }
 
- export {app,server};
-
+export { app, server };
