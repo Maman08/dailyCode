@@ -26,7 +26,7 @@ export const addUser=async(req:Request,res:Response)=>{
 }
 export const deleteUser=async(req:Request,res:Response)=>{
     try{
-        const id =req.params
+        const {id} =req.params
         await pool.query("UPDATE users SET deleted_at = NOW() WHERE id = $1", [id]);
         res.status(200).json({msg:"User Deleted successfully"})
     }catch(error){

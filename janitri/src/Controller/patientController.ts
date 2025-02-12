@@ -26,7 +26,7 @@ export const addPatient=async(req:Request,res:Response)=>{
 }
 export const deletePatient=async(req:Request,res:Response)=>{
     try{
-        const id =req.params
+        const {id} =req.params
         await pool.query("UPDATE patients SET deleted_at = NOW() WHERE id = $1", [id]);
         res.status(200).json({msg:"Patient Deleted successfully"})
     }catch(error){
