@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: sports_mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: sportsdb 
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - sports_network
+
+  express:
+    build:
+      context: ./xpris
+      dockerfile: Dockerfile
+    container_name: sports_express
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/sportsdb
+      - PORT=3000
+    depends_on:
+      - mongodb
+    networks:
+      - sports_network         
+    volumes:
+      - ./xpris:/app
+      - /app/node_modules  
+
+  django:
+    build:
+      context: ./jangu/sports_project
+      dockerfile: Dockerfile
+    container_name: sports_django
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/sportsdb
+    depends_on:
+      - mongodb
+    networks:
+      - sports_network         
+    volumes:
+      - ./jangu/sports_project:/app
+
+volumes:
+  mongodb_data:
+
+networks:
+  sports_network:
+    driver: bridge  
+  
